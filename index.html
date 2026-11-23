@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Parabéns, meu amor</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Pinyon+Script&family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #14090f;
+        --bg2: #1f0f19;
+        --ink: #fbeef0;
+        --soft: #d9b9c0;
+        --rose: #f2a7b8;
+        --gold: #e8c28a;
+        --wine: #7a1f3d;
+        --serif: 'Cormorant Garamond', Georgia, serif;
+        --script: 'Pinyon Script', 'Brush Script MT', cursive;
+        --sans: 'Nunito', system-ui, sans-serif;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(
+            55% 40% at 12% 30%,
+            rgba(160, 40, 80, 0.35),
+            transparent
+          ),
+          radial-gradient(
+            55% 40% at 88% 72%,
+            rgba(160, 40, 80, 0.3),
+            transparent
+          ),
+          radial-gradient(120% 80% at 50% 0%, var(--bg2), var(--bg));
+        background-attachment: fixed;
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      section {
+        position: relative;
+        z-index: 1;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 12vh 24px;
+      }
+      .hero {
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding-top: 6vh;
+        padding-bottom: 6vh;
+      }
+      .hero .frame {
+        width: min(68vw, 300px);
+        aspect-ratio: 3/4;
+        border-radius: 999px 999px 24px 24px;
+        overflow: hidden;
+        margin: 0 auto 28px;
+        border: 1px solid var(--gold);
+        padding: 8px;
+        background: linear-gradient(
+          160deg,
+          rgba(232, 194, 138, 0.25),
+          rgba(122, 31, 61, 0.3)
+        );
+        animation: rise 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+      .hero .frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 999px 999px 16px 16px;
+        display: block;
+      }
+      .hero h1 {
+        font-family: var(--script);
+        font-weight: 400;
+        font-size: clamp(3.4rem, 13vw, 7rem);
+        line-height: 1.05;
+        margin: 0;
+        color: var(--rose);
+        text-shadow: 0 0 40px rgba(242, 167, 184, 0.35);
+        animation: rise 1.8s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+      .hero p {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+        color: var(--soft);
+        margin: 0.6rem 0 0;
+        animation: rise 1.8s 0.6s both;
+      }
+      .hint {
+        margin-top: 34px;
+        color: var(--gold);
+        font-size: 0.9rem;
+        animation: bob 2.4s infinite;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(26px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes bob {
+        50% {
+          transform: translateY(8px);
+        }
+      }
+      h2 {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        text-align: center;
+        margin: 0 0 0.4em;
+        line-height: 1.15;
+      }
+      .sub {
+        font-family: var(--serif);
+        font-style: italic;
+        text-align: center;
+        color: var(--soft);
+        font-size: 1.25rem;
+        max-width: 34rem;
+        margin: 0 auto 3rem;
+      }
+      .count {
+        display: none;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        max-width: 520px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .count div {
+        border: 1px solid rgba(232, 194, 138, 0.35);
+        border-radius: 18px;
+        padding: 16px 4px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .count b {
+        display: block;
+        font-family: var(--serif);
+        font-size: clamp(1.8rem, 7vw, 2.6rem);
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .count span {
+        font-size: 0.8rem;
+        color: var(--soft);
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 36px 28px;
+        align-items: start;
+      }
+      .pol {
+        background: #fff4ee;
+        color: #3a1a24;
+        padding: 12px 12px 44px;
+        border-radius: 6px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+        transform: rotate(var(--r, 0deg));
+        transition: transform 0.4s;
+      }
+      .pol:nth-child(1) {
+        --r: -2.5deg;
+      }
+      .pol:nth-child(2) {
+        --r: 2deg;
+        margin-top: 30px;
+      }
+      .pol:nth-child(3) {
+        --r: -1.5deg;
+      }
+      .pol:nth-child(4) {
+        --r: 2.5deg;
+        margin-top: 30px;
+      }
+      .pol:hover {
+        transform: rotate(0) scale(1.03);
+      }
+      .pol img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border-radius: 3px;
+        display: block;
+      }
+      .pol p {
+        font-family: var(--script);
+        font-size: 1.7rem;
+        text-align: center;
+        margin: 12px 0 0;
+        line-height: 1.2;
+        color: var(--wine);
+      }
+      .letter {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 244, 238, 0.07),
+          rgba(255, 244, 238, 0.03)
+        );
+        border: 1px solid rgba(232, 194, 138, 0.3);
+        border-radius: 28px;
+        padding: clamp(28px, 6vw, 64px);
+        text-align: center;
+      }
+      .letter p {
+        font-family: var(--serif);
+        font-size: clamp(1.25rem, 3.6vw, 1.6rem);
+        max-width: 36rem;
+        margin: 0 auto 1.1em;
+      }
+      .sign {
+        font-family: var(--script);
+        font-size: 2.6rem;
+        color: var(--rose);
+        margin-top: 0.4em;
+      }
+      .end {
+        text-align: center;
+      }
+      .rv {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 1s,
+          transform 1s;
+      }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* luzes circulares */
+      .glow {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .orb {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: var(--d);
+        height: var(--d);
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--c) 0%, transparent 65%);
+        filter: blur(10px);
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.6);
+        animation: glow var(--t) ease-in-out var(--dl) infinite;
+      }
+      @keyframes glow {
+        0%,
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.6);
+        }
+        50% {
+          opacity: 0.85;
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
+
+      /* corações pequenos */
+      .hearts {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .heart {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        font-family: Georgia, serif;
+        font-style: normal;
+        line-height: 1;
+        font-size: var(--s);
+        color: var(--c);
+        text-shadow: 0 0 10px currentColor;
+        opacity: 0;
+        animation: heartGlow var(--t) ease-in-out var(--dl) infinite;
+      }
+      @keyframes heartGlow {
+        0%,
+        100% {
+          opacity: 0;
+          transform: translateY(0) scale(0.7);
+        }
+        50% {
+          opacity: 0.6;
+          transform: translateY(-16px) scale(1);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .pol:nth-child(n) {
+          margin-top: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *:not(.orb):not(.heart) {
+          animation: none !important;
+          transition: none !important;
+        }
+        .rv {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true">
+      <i
+        class="orb"
+        style="
+          --x: 15%;
+          --y: 20%;
+          --d: 55vmax;
+          --c: rgba(242, 100, 140, 0.55);
+          --t: 7s;
+          --dl: 0s;
+        "
+      ></i>
+      <i
+        class="orb"
+        style="
+          --x: 85%;
+          --y: 30%;
+          --d: 45vmax;
+          --c: rgba(232, 194, 138, 0.4);
+          --t: 9s;
+          --dl: -3s;
+        "
+      ></i>
+      <i
+        class="orb"
+        style="
+          --x: 50%;
+          --y: 55%;
+          --d: 60vmax;
+          --c: rgba(160, 40, 80, 0.6);
+          --t: 11s;
+          --dl: -6s;
+        "
+      ></i>
+      <i
+        class="orb"
+        style="
+          --x: 10%;
+          --y: 80%;
+          --d: 50vmax;
+          --c: rgba(242, 167, 184, 0.45);
+          --t: 8s;
+          --dl: -2s;
+        "
+      ></i>
+      <i
+        class="orb"
+        style="
+          --x: 90%;
+          --y: 85%;
+          --d: 55vmax;
+          --c: rgba(200, 60, 110, 0.5);
+          --t: 10s;
+          --dl: -5s;
+        "
+      ></i>
+    </div>
+    <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+    <section class="hero">
+      <div>
+        <div class="frame"><img src="img/foto1.jpg" alt="Nós dois" /></div>
+        <h1>Parabéns, <span id="nome"></span></h1>
+        <p>
+          Este dia é todo seu, e eu quis te dar um cantinho cheio de nós dois.
+        </p>
+        <div class="hint">role para baixo ♡</div>
+      </div>
+    </section>
+
+    <section class="rv" id="tempo" style="padding-top: 4vh">
+      <h2>Cada segundo ao seu lado</h2>
+      <p class="sub">Já vivemos tanta coisa juntos.</p>
+      <div class="count" id="count">
+        <div><b id="cd">0</b><span>dias</span></div>
+        <div><b id="ch">0</b><span>horas</span></div>
+        <div><b id="cm">0</b><span>minutos</span></div>
+        <div><b id="cs">0</b><span>segundos</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="rv">Nossos momentos</h2>
+      <p class="sub rv">
+        Pequenos registros de dias que eu guardaria para sempre.
+      </p>
+      <div class="gallery">
+        <figure class="pol rv" style="margin: 0">
+          <img src="img/foto2.jpg" alt="Passeio" loading="lazy" />
+        </figure>
+        <figure class="pol rv" style="margin: 0">
+          <img src="img/foto3.jpg" alt="Selfie" loading="lazy" />
+        </figure>
+        <figure class="pol rv" style="margin: 0">
+          <img src="img/foto4.jpg" alt="Espelho" loading="lazy" />
+        </figure>
+        <figure class="pol rv" style="margin: 0">
+          <img src="img/foto1.jpg" alt="Nós dois" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="rv">
+      <div class="letter">
+        <h2>Para você</h2>
+        <p>
+          Hoje é o seu dia, e eu só tenho uma coisa a dizer: obrigado por
+          existir na minha vida.
+        </p>
+        <p>
+          Que a gente continue firmes e fortes, aprendendo, se apoiando e se
+          amando cada vez mais. Lembre que estarei sempre com você, nos dias
+          bons e nos dias ruins!
+        </p>
+        <p>
+          Que este novo ano venha cheio de saúde, sonhos realizados e muitos
+          momentos como esses. E que eu esteja ao seu lado em cada um deles.
+        </p>
+        <p>Eu te amo muito.</p>
+        <div class="sign">Seu amor</div>
+      </div>
+    </section>
+
+    <script>
+      var NOME = 'meu amor'
+      var INICIO = '2026-07-12T00:00:00'
+
+      document.getElementById('nome').textContent = NOME
+
+      if (INICIO) {
+        var box = document.getElementById('count')
+        box.style.display = 'grid'
+        var t0 = new Date(INICIO).getTime()
+        var tick = function () {
+          var d = Math.max(0, Date.now() - t0),
+            s = Math.floor(d / 1000)
+          document.getElementById('cd').textContent = Math.floor(s / 86400)
+          document.getElementById('ch').textContent = Math.floor(
+            (s % 86400) / 3600
+          )
+          document.getElementById('cm').textContent = Math.floor(
+            (s % 3600) / 60
+          )
+          document.getElementById('cs').textContent = s % 60
+        }
+        tick()
+        setInterval(tick, 1000)
+      } else {
+        document.getElementById('tempo').style.display = 'none'
+      }
+
+      var io = new IntersectionObserver(
+        function (es) {
+          es.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in')
+              io.unobserve(e.target)
+            }
+          })
+        },
+        { threshold: 0.15 }
+      )
+      document.querySelectorAll('.rv').forEach(function (el) {
+        io.observe(el)
+      })
+      ;(function () {
+        var box = document.getElementById('hearts')
+        var cores = [
+          'rgba(242,167,184,.9)',
+          'rgba(242,100,140,.9)',
+          'rgba(232,194,138,.8)',
+          'rgba(200,60,110,.9)'
+        ]
+        var r = function (a, b) {
+          return a + Math.random() * (b - a)
+        }
+        for (var n = 0; n < 22; n++) {
+          var h = document.createElement('i')
+          h.className = 'heart'
+          h.textContent = '♥'
+          h.style.setProperty('--x', r(3, 97) + '%')
+          h.style.setProperty('--y', r(5, 92) + '%')
+          h.style.setProperty('--s', r(10, 22) + 'px')
+          h.style.setProperty('--c', cores[n % cores.length])
+          h.style.setProperty('--t', r(6, 12) + 's')
+          h.style.setProperty('--dl', '-' + r(0, 12) + 's')
+          box.appendChild(h)
+        }
+      })()
+    </script>
+  </body>
+</html>
